@@ -1,4 +1,5 @@
 {
     "host": "http://localhost:3000",
-    "dbURI": "mongodb://zenchatuser:zenchatdb@ds151127.mlab.com:51127/zenchatdb"
+    "dbURI": "mongodb://zenchatuser:zenchatdb@ds151127.mlab.com:51127/zenchatdb",
+    "sessionSecret": "zeniswithin"
 }
