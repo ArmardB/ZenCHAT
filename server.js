@@ -1,4 +1,5 @@
 'use strict';
+
 const express = require('express');
 const app = express();
 const zenCHAT = require('./app');
@@ -6,6 +7,8 @@ const zenCHAT = require('./app');
 app.set('port', process.env.PORT || 3000);
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+
+app.use(zenCHAT.session);
 
 app.use('/', zenCHAT.router);
 

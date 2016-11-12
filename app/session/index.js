@@ -5,7 +5,7 @@ const MongoStore = require('connect-mongo')(session);
 const config = require('../config');
 const db = require('../db');
 
-if(process.env.NODE.ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
     // Initialize sesssion with settings for production
     module.exports = session({
         secret: config.sessionSecret,
@@ -23,3 +23,4 @@ if(process.env.NODE.ENV === 'production') {
         saveUninitialized: true
     });
 }
+
