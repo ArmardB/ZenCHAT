@@ -6,6 +6,18 @@ const h = require('../helpers');
 const FaceBookStrategy = require('passport-facebook').Strategy;
 
 module.exports = () => {
+    // Creates a sessions and stores userId inside session
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
+
+    passport.deserializeUser((id, done) => {
+        //Find the user using the _id
+        h.findById(id)
+            .then(user => done(null, user))
+            .catch(error => console.log('Error when deseriealizing the user'));
+    });
+
     let authProcessor = (accessToken, refreshToken, profile, done) => {
         // Find a user in the local mongodb instance using profile.id
         // If the user if found, return the user data using done()
